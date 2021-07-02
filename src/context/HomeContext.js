@@ -8,22 +8,26 @@ import {
 import { ReducerFunction } from '../reducer/ReducerFunction';
 import { getProducts } from '../services/getProducts';
 import { getUserData } from '../services/getUserData';
+import { useAuthContext } from './AuthProvider';
 
 const HomeContext = createContext();
 
 export const HomeProvider = ({ children }) => {
   const [database, setDatabase] = useState([]);
   const [loader, setLoader] = useState(false);
+  const { token } = useAuthContext();
 
   useEffect(async () => {
-    const products = await getProducts('/products');
-    const { cart, wishlist } = await getUserData();
-
-    cartData(cart, products);
-    wishListData(wishlist, products);
-    setLoader(true);
-    setDatabase(products);
-  }, []);
+    if (token) {
+      const products = await getProducts();
+      const { cart, wishlist } = await getUserData();
+      console.log('rener', products);
+      cartData(cart, products);
+      wishListData(wishlist, products);
+      setLoader(true);
+      setDatabase(products);
+    }
+  }, [token]);
 
   const cartData = (cart, products) => {
     const updatedCart = cart.map((cartId) => {

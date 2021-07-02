@@ -1,13 +1,13 @@
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState } from 'react';
 
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [displaySort, setDisplaySort] = useState(false);
-  const [filterItem, setFilterItem] = useState("Availability");
+  const [filterItem, setFilterItem] = useState('Availability');
   const [displayFilter, setDisplayFilter] = useState(false);
   const [NavBarDisplay, setNavBarDisplay] = useState(false);
-  const [toastText, setToastText] = useState("");
+  const [toastText, setToastText] = useState('');
   const [toastShow, setToastShow] = useState(false);
 
   const toggleDisplaySort = () => setDisplaySort((block) => !block);
@@ -15,7 +15,7 @@ export const ProductProvider = ({ children }) => {
   const toggleSetNavBarDisplay = () => setNavBarDisplay((block) => !block);
 
   const payloadParse = (item) => {
-    return item.toUpperCase().split(" ").join("_");
+    return item.toUpperCase().split(' ').join('_');
   };
 
   return (
@@ -36,7 +36,7 @@ export const ProductProvider = ({ children }) => {
         toastText,
         setToastText,
         toastShow,
-        setToastShow
+        setToastShow,
       }}
     >
       {children}

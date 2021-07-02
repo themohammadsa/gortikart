@@ -5,7 +5,7 @@ const API_URL = 'https://gortikart.themohammadsa.repl.co';
 
 export const getProducts = async (url) => {
   try {
-    const response = await axios.get(`${API_URL}${url}`);
+    const response = await axios.get(`${API_URL}/products`);
     return response.data.products;
   } catch (error) {
     return errorHandler(error);
