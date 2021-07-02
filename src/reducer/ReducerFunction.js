@@ -45,11 +45,18 @@ export const ReducerFunction = (state, { type, payload, action, key }) => {
       }
     case 'MOVE_TO_WISHLIST':
       moveToWishList(payload.id);
-      return {
-        ...state,
-        cart: state.cart.filter((item) => item.id !== payload.id),
-        wishList: [...state.wishList, payload],
-      };
+      if (state.wishList.some((product) => product.id === payload.id)) {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== payload.id),
+        };
+      } else {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== payload.id),
+          wishList: [...state.wishList, payload],
+        };
+      }
     case 'REMOVE_FROM_WISHLIST':
       removeFromWishList(payload.id);
       return {
