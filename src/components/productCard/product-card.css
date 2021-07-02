@@ -1,0 +1,125 @@
+.product-card {
+  background-color: #ffffff;
+  width: 15rem;
+  height: 25rem;
+  margin: 2rem 0rem;
+  border-radius: 7px;
+  border: 2px solid rgba(99, 99, 99, 0.1);
+  position: relative;
+  padding: 1rem;
+  justify-content: space-around;
+}
+
+.product-card .product-card-image {
+  border-radius: 3px;
+  width: auto;
+  height: 10rem;
+  object-fit: scale-down;
+}
+
+.product-card .total-price {
+  color: var(--grey400);
+  font-weight: 300;
+  padding-right: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.product-card .new-price {
+  font-weight: 700;
+  padding-right: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.product-card .discount {
+  font-weight: 700;
+  color: var(--borderblue);
+  padding-right: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.product-card .heading {
+  font-weight: 700;
+  margin: 0.7rem 0rem 0.4rem 0rem;
+  font-size: 1.1rem;
+}
+
+.product-card .reviews {
+  font-weight: 300;
+  color: var(--grey400);
+  padding-right: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.product-card .line-spacing {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.product-card .rating {
+  font-weight: 400;
+  color: white;
+  padding: 0.05rem 0.3rem;
+  margin: 0.5rem 0rem;
+  border-radius: 3px;
+  background-color: green;
+  text-align: center;
+  width: 2rem;
+  font-size: 0.75rem;
+}
+
+.add-to-cart-button {
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--borderblue);
+}
+
+.wishlist-emoji {
+  width: 1.5rem;
+  padding: 0rem 0.3rem;
+  cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.out-of-stock {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--borderblue);
+}
+
+.out-of-stock > span {
+  background-color: white;
+  width: 80%;
+  border: 3px solid var(--borderblue);
+  border-radius: 7px;
+  display: flex;
+  text-align: center;
+  position: relative;
+  top: 4rem;
+  opacity: 0.9;
+}
+
+.product-card-footer {
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}

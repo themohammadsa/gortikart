@@ -1,0 +1,25 @@
+.wishlist-empty-button {
+  margin: 2rem 0rem;
+  justify-content: space-evenly;
+}
+
+.wishlist {
+  padding-bottom: 10rem;
+}
+
+.cart-empty {
+  margin: 3rem auto;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .wishlist {
+    width: 50%;
+    margin: 0rem auto;
+  }
+
+  .scale-11 {
+    transform: scale(1.1);
+  }
+}

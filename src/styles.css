@@ -1,0 +1,81 @@
+:root {
+  --grey100: #f3f4f6;
+  --grey200: #e5e7eb;
+  --grey400: #9ca3af;
+  --grey500: #6b7280;
+  --greybg: #ebebeb;
+  --borderblue: #023e8a;
+  --blue50: #eff6ff;
+  --blue800: #1e40af;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.App {
+  font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.8px;
+  padding-bottom: 5rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.margin-right {
+  margin-right: 1rem;
+}
+
+.align-end {
+  align-self: flex-start;
+}
+
+.align-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  letter-spacing: 0.6px;
+}
+
+.button-primary {
+  background-color: var(--blue800);
+  border: 1px solid var(--blue800);
+}
+
+.button-secondary:hover {
+  background-color: white;
+  color: var(--blue800);
+}
+
+.button-primary:hover {
+  background-color: var(--blue800);
+  color: white;
+}
+
+.button-secondary {
+  color: var(--borderblue);
+  font-weight: 700;
+  border: 1px solid var(--borderblue);
+}
+
+.mobile {
+  display: block;
+}
+
+.desktop {
+  display: none;
+}
+
+@media only screen and (min-width: 800px) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+}

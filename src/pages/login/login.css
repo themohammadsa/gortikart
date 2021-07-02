@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap');
+
+.register-page {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.register-box {
+  background-color: #ffffff;
+  width: 30%;
+  height: 25rem;
+  margin: 2rem 0rem;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.register-content {
+  width: 82%;
+  margin: 0rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-div {
+  width: 100%;
+}
+
+.input-div > span {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.input-field {
+  border: 2px solid rgba(99, 99, 99, 0.1);
+  color: black;
+  border-radius: 5px;
+  margin: 0.8rem 0rem 1.7rem 0rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  width: 98%;
+  padding: 0.2rem;
+  padding-left: 1rem;
+}
+
+.primary-button {
+  border: 1px solid var(--borderblue);
+  background-color: var(--blue800);
+  color: white;
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--borderblue);
+}
+
+.secondary-button {
+  border: 1px solid var(--borderblue);
+  background-color: white;
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background-color: var(--blue50);
+}
+
+.align-left {
+  align-self: flex-start;
+  font-size: 0.9rem;
+}
+
+.span-link {
+  background-color: white;
+  border: 0;
+  color: var(--borderblue);
+  font-weight: bold;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.span-link:hover {
+  text-decoration: underline;
+}
+
+.error-text {
+  color: red;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.divider {
+  display: flex;
+  width: 100%;
+}
+
+.divider > span {
+  margin: 0px 0.2rem;
+}
+
+.divider > hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+@media only screen and (max-width: 800px) {
+  .register-box {
+    width: 90%;
+  }
+
+  .register-content {
+    width: 85%;
+  }
+
+  .input-field {
+    width: 92%;
+  }
+}

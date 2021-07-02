@@ -1,0 +1,35 @@
+.footer-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--borderblue);
+  margin-top: 4rem;
+  width: 100%;
+  min-height: 12rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-content span {
+  color: white;
+}
+
+.footer-content > p {
+  color: white;
+}
+
+.link-style {
+  color: white;
+}
+
+.icon-footer {
+  opacity: 1;
+  margin: 1rem 0.2rem;
+}
+
+@media only screen and (min-width: 800px) {
+  .footer-bar {
+    min-height: 9rem;
+  }
+}
