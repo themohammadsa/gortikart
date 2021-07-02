@@ -1,6 +1,6 @@
 import './login.css';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/register/loginUser';
 import { useProductContext } from '../../context/ProductContext';
 import { useAuthContext } from '../../context/AuthProvider';
@@ -13,12 +13,9 @@ export const Login = () => {
   const [error, setError] = useState('');
   const [loader, setLoader] = useState(false);
   const { setToastText, setToastShow } = useProductContext();
-  const {
-    setName,
-    setToken,
-    setEmail: setEmailContext,
-  } = useAuthContext();
+  const { setName, setToken, setEmail: setEmailContext } = useAuthContext();
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const guestHandler = () => {
     setEmail('guest@guest.com');
@@ -56,7 +53,7 @@ export const Login = () => {
               userId: data.userId,
             })}`
           );
-          return navigate('/');
+          return navigate(state?.from ? state.from : '/');
         }, 1000);
       } else if (data.message === '409') {
         setError('Password incorrect');
@@ -79,7 +76,7 @@ export const Login = () => {
         setName(name);
         setEmailContext(email);
         setupTokenHeaderForAxios(token);
-        navigate('/');
+        navigate(state?.from ? state.from : '/');
       }
     }
     checkUserLoginStatus();
