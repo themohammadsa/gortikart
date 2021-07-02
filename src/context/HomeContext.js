@@ -21,7 +21,6 @@ export const HomeProvider = ({ children }) => {
     if (token) {
       const products = await getProducts();
       const { cart, wishlist } = await getUserData();
-      console.log('rener', products);
       cartData(cart, products);
       wishListData(wishlist, products);
       setLoader(true);
