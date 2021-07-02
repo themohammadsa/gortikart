@@ -43,6 +43,7 @@ export const HomeProvider = ({ children }) => {
       const updatedWishListProduct = products.find(
         (product) => product.id === wishListId
       );
+      ``;
       return updatedWishListProduct;
     });
     state.wishList = updatedWishList;
