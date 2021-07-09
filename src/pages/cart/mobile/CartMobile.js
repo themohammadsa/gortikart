@@ -1,11 +1,11 @@
-import "./cart-mobile.css";
-import { useHomeContext } from "../../../context/HomeContext";
-import { CartSummaryCard } from "../../../components/cartSummaryCard/CartSummaryCard";
-import { useNavigate } from "react-router-dom";
-import { totalCartPrice } from "../CartFunctions";
-import back from "../../../icons/back.png"
-import { CartCard } from "../../../components/cartCard/CartCard";
-import cartempty from "../../../icons/cartempty.svg";
+import './cart-mobile.css';
+import { useHomeContext } from '../../../context/HomeContext';
+import { CartSummaryCard } from '../../../components/cartSummaryCard/CartSummaryCard';
+import { useNavigate } from 'react-router-dom';
+import { totalCartPrice } from '../CartFunctions';
+import back from '../../../icons/back.png';
+import { CartCard } from '../../../components/cartCard/CartCard';
+import cartempty from '../../../icons/cartempty.svg';
 
 export const CartMobile = () => {
   const { state } = useHomeContext();
@@ -18,7 +18,7 @@ export const CartMobile = () => {
           <img
             src={back}
             className="back-icon"
-            onClick={() => navigate("/products")}
+            onClick={() => navigate('/products')}
           />
           <h2>CART ({state.cart.length}) </h2>
         </div>
@@ -44,30 +44,30 @@ export const CartMobile = () => {
                     <small>You have pending items in your wishlist.</small>
                     <div className="flex-row cart-empty-button">
                       <button
-                        onClick={() => navigate("/wishlist")}
+                        onClick={() => navigate('/wishlist')}
                         className="button button-secondary "
                       >
-                        {" "}
-                        GO TO WISHLIST{" "}
+                        {' '}
+                        GO TO WISHLIST{' '}
                       </button>
                       <button
-                        onClick={() => navigate("/products")}
+                        onClick={() => navigate('/products')}
                         className="button button-primary "
                       >
-                        SHOP NOW{" "}
-                      </button>{" "}
+                        SHOP NOW{' '}
+                      </button>{' '}
                     </div>
                   </div>
                 ) : (
                   <div>
                     <button
-                      onClick={() => navigate("/products")}
+                      onClick={() => navigate('/products')}
                       className="button button-primary "
                     >
-                      SHOP NOW{" "}
-                    </button>{" "}
+                      SHOP NOW{' '}
+                    </button>{' '}
                   </div>
-                )}{" "}
+                )}{' '}
               </div>
             </div>
           )}
@@ -75,10 +75,15 @@ export const CartMobile = () => {
 
         <div className="cart-footer flex-row">
           <div>
-            {" "}
-            <h2> ₹{totalCartPrice()} </h2>{" "}
+            {' '}
+            <h2> ₹{totalCartPrice()} </h2>{' '}
           </div>
-          <div className="cart-order-button shadow">PROCEED &gt; </div>
+          <div
+            className="cart-order-button shadow"
+            onClick={() => navigate('/cart/checkout')}
+          >
+            PROCEED &gt;{' '}
+          </div>
         </div>
       </div>
     </div>

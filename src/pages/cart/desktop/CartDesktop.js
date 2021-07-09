@@ -1,33 +1,33 @@
-import "./cart-desktop.css";
-import { useHomeContext } from "../../../context/HomeContext";
-import { CartSummaryCard } from "../../../components/cartSummaryCard/CartSummaryCard";
-import { useNavigate } from "react-router-dom";
+import './cart-desktop.css';
+import { useHomeContext } from '../../../context/HomeContext';
+import { CartSummaryCard } from '../../../components/cartSummaryCard/CartSummaryCard';
+import { useNavigate } from 'react-router-dom';
 
-import { CartCard } from "../../../components/cartCard/CartCard";
-import cartempty from "../../../icons/cartempty.svg";
+import { CartCard } from '../../../components/cartCard/CartCard';
+import cartempty from '../../../icons/cartempty.svg';
 
 export const CartDesktop = () => {
   const { state } = useHomeContext();
   const navigate = useNavigate();
- 
+
   const PendingWishList = () => {
     return (
       <div className="flex-column">
         <small>You have pending items in your wishlist.</small>
         <div className="flex-row cart-empty-button">
           <button
-            onClick={() => navigate("/wishlist")}
+            onClick={() => navigate('/wishlist')}
             className="button button-secondary "
           >
-            {" "}
-            GO TO WISHLIST{" "}
+            {' '}
+            GO TO WISHLIST{' '}
           </button>
           <button
-            onClick={() => navigate("/products")}
+            onClick={() => navigate('/products')}
             className="button button-primary "
           >
-            SHOP NOW{" "}
-          </button>{" "}
+            SHOP NOW{' '}
+          </button>{' '}
         </div>
       </div>
     );
@@ -37,11 +37,11 @@ export const CartDesktop = () => {
     return (
       <div>
         <button
-          onClick={() => navigate("/products")}
+          onClick={() => navigate('/products')}
           className="button button-primary "
         >
-          SHOP NOW{" "}
-        </button>{" "}
+          SHOP NOW{' '}
+        </button>{' '}
       </div>
     );
   };
@@ -54,7 +54,7 @@ export const CartDesktop = () => {
           <p> Your Cart is empty! </p>
 
           {state.wishList.length !== 0 ? <PendingWishList /> : <ShopNow />}
-        </div>{" "}
+        </div>{' '}
       </div>
     );
   };
@@ -73,15 +73,20 @@ export const CartDesktop = () => {
                     <CartCard product={product} />
                   </>
                 );
-              })}{" "}
+              })}{' '}
             </div>
             <div className="flex-column cart-summary-flex">
               <CartSummaryCard />
               <div>
-                {" "}
-                <button className="order-button shadow">PROCEED {">"} </button>{" "}
+                {' '}
+                <button
+                  className="order-button shadow"
+                  onClick={() => navigate('/cart/checkout')}
+                >
+                  PROCEED {'>'}{' '}
+                </button>{' '}
               </div>
-            </div>{" "}
+            </div>{' '}
           </div>
         ) : (
           <CartEmpty />

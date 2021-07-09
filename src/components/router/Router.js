@@ -7,9 +7,10 @@ import { Error } from '../../pages/error/Error';
 import { Login } from '../../pages/login/Login';
 import { SignUp } from '../../pages/signUp/SignUp';
 import { PrivateRoute } from './PrivateRoute';
+import { Address } from '../../pages/address/Address';
+import { CheckOutAddress } from '../../pages/address/CheckOutAddress';
 
 export const Router = () => {
-  
   return (
     <>
       <Routes>
@@ -25,6 +26,8 @@ export const Router = () => {
         <PrivateRoute path="/products" element={<ProductList />} />
         <PrivateRoute path="/cart" element={<Cart />} />
         <PrivateRoute path="/wishlist" element={<WishList />} />
+        <PrivateRoute path="/address" element={<Address />} />
+        <PrivateRoute path="/cart/checkout" element={<CheckOutAddress />} />
 
         <Route path="*" element={<Error />} />
       </Routes>
