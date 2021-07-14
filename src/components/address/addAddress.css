@@ -1,0 +1,68 @@
+.address-box {
+  background-color: #ffffff;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 30rem;
+}
+
+.address-content {
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+.address-box > h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--blue800);
+  color: white;
+  width: 100%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  padding: 1rem 0rem;
+  text-align: center;
+}
+
+.address-box,
+label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.input-address-field {
+  display: block;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(99, 99, 99, 0.1);
+  color: black;
+  border-radius: 5px;
+  margin: 0.8rem 0rem 1.7rem 0rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  width: 95%;
+  padding: 0.2rem;
+  padding-left: 1rem;
+}
+
+.primary-button {
+  border: 1px solid var(--borderblue);
+  background-color: var(--blue800);
+  color: white;
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--borderblue);
+}
+
+@media only screen and (max-width: 600px) {
+  .address-box {
+    width: 16rem;
+  }
+  .input-address-field {
+    width: 90%;
+  }
+}

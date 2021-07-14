@@ -69,6 +69,7 @@
 .align-left {
   align-self: flex-start;
   font-size: 0.9rem;
+  margin-top: 0.6rem;
 }
 
 .span-link {

@@ -21,31 +21,21 @@ export const HomeProvider = ({ children }) => {
     if (token) {
       const products = await getProducts();
       const { cart, wishlist } = await getUserData();
-      cartData(cart, products);
-      wishListData(wishlist, products);
+      updateData(cart, products, 'cart');
+      updateData(wishlist, products, 'wishList');
       setLoader(true);
       setDatabase(products);
     }
   }, [token]);
 
-  const cartData = (cart, products) => {
-    const updatedCart = cart.map((cartId) => {
-      const updatedCartProduct = products.find(
-        (product) => product.id === cartId
+  const updateData = (categoryData, products, categoryName) => {
+    const updatedData = categoryData.map((productId) => {
+      const updatedProductData = products.find(
+        (product) => product.id === productId
       );
-      return updatedCartProduct;
+      return updatedProductData;
     });
-    state.cart = updatedCart;
-  };
-
-  const wishListData = (wishList, products) => {
-    const updatedWishList = wishList.map((wishListId) => {
-      const updatedWishListProduct = products.find(
-        (product) => product.id === wishListId
-      );
-      return updatedWishListProduct;
-    });
-    state.wishList = updatedWishList;
+    state[`${categoryName}`] = updatedData;
   };
 
   const initialState = {

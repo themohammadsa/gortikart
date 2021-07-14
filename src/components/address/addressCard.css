@@ -1,0 +1,31 @@
+.address-card {
+  background-color: #ffffff;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 20rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.button-remove {
+  color: red;
+  font-size: 1.8rem;
+  background-color: white;
+  font-weight: 500;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  padding-bottom: 1px;
+  border: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .address-card {
+    width: 16rem;
+  }
+
+}

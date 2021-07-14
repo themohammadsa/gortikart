@@ -1,20 +1,15 @@
-import { addToCart, removeFromCart, moveToCart } from '../services/cartProduct';
-import {
-  addToWishList,
-  removeFromWishList,
-  moveToWishList,
-} from '../services/wishListProduct';
+import { postUserResponse } from '../services/postUserResponse';
 
 export const ReducerFunction = (state, { type, payload, action, key }) => {
   switch (type) {
     case 'ADD_TO_CART':
-      addToCart(payload.id);
+      postUserResponse(payload.id, 'cart', 'add');
       return {
         ...state,
         cart: [...state.cart, payload],
       };
     case 'MOVE_TO_CART':
-      moveToCart(payload.id);
+      postUserResponse(payload.id, 'cart', 'move');
       const productInCart = state.cart.some(
         (product) => product.id === payload.id
       );
@@ -31,27 +26,34 @@ export const ReducerFunction = (state, { type, payload, action, key }) => {
         };
       }
     case 'REMOVE_FROM_CART':
-      removeFromCart(payload.id);
+      postUserResponse(payload.id, 'cart', 'remove');
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== payload.id),
       };
     case 'ADD_TO_WISHLIST':
-      addToWishList(payload.id);
+      postUserResponse(payload.id, 'wishlist', 'add');
       if (state.wishList.some((product) => product.id === payload.id)) {
         return state;
       } else {
         return { ...state, wishList: [...state.wishList, payload] };
       }
     case 'MOVE_TO_WISHLIST':
-      moveToWishList(payload.id);
-      return {
-        ...state,
-        cart: state.cart.filter((item) => item.id !== payload.id),
-        wishList: [...state.wishList, payload],
-      };
+      postUserResponse(payload.id, 'wishlist', 'move');
+      if (state.wishList.some((product) => product.id === payload.id)) {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== payload.id),
+        };
+      } else {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== payload.id),
+          wishList: [...state.wishList, payload],
+        };
+      }
     case 'REMOVE_FROM_WISHLIST':
-      removeFromWishList(payload.id);
+      postUserResponse(payload.id, 'wishlist', 'remove');
       return {
         ...state,
         wishList: state.wishList.filter((item) => item.id !== payload.id),

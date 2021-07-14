@@ -1,11 +1,12 @@
-import "./nav-bar.css";
-import logotext from "../../icons/logotext.png";
-import products from "../../icons/products.png";
-import cart from "../../icons/cart.png";
-import home from "../../icons/home.png";
-import wishlist from "../../icons/wishlist.png";
-import { useNavigate } from "react-router-dom";
-import { useProductContext } from "../../context/ProductContext";
+import './nav-bar.css';
+import logotext from '../../icons/logotext.png';
+import products from '../../icons/products.png';
+import cart from '../../icons/cart.png';
+import home from '../../icons/home.png';
+import wishlist from '../../icons/wishlist.png';
+import address from '../../icons/address.png';
+import { useNavigate } from 'react-router-dom';
+import { useProductContext } from '../../context/ProductContext';
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export const NavBar = () => {
         <nav
           className="nav-modal-block"
           onClick={(event) =>
-            event.target.classList.contains("nav-modal-block")
+            event.target.classList.contains('nav-modal-block')
               ? toggleSetNavBarDisplay()
               : null
           }
@@ -26,7 +27,7 @@ export const NavBar = () => {
           <div className="flex-row">
             <div className="nav-menu">
               <div className=" flex-row justify-space-between ">
-                <img src={logotext} className="logo-text pad1rem" />{" "}
+                <img src={logotext} className="logo-text pad1rem" />{' '}
                 <span
                   className="button-dismiss"
                   onClick={toggleSetNavBarDisplay}
@@ -38,7 +39,7 @@ export const NavBar = () => {
                 className="navbar-text"
                 onClick={() => {
                   toggleSetNavBarDisplay();
-                  navigate("/");
+                  navigate('/');
                 }}
               >
                 <img src={home} className="navbar-logo" />
@@ -49,7 +50,7 @@ export const NavBar = () => {
                 className="navbar-text"
                 onClick={() => {
                   toggleSetNavBarDisplay();
-                  navigate("/products");
+                  navigate('/products');
                 }}
               >
                 <img src={products} className="navbar-logo" />
@@ -59,7 +60,7 @@ export const NavBar = () => {
                 className="navbar-text"
                 onClick={() => {
                   toggleSetNavBarDisplay();
-                  navigate("/cart");
+                  navigate('/cart');
                 }}
               >
                 <img src={cart} className="navbar-logo" />
@@ -69,11 +70,21 @@ export const NavBar = () => {
                 className="navbar-text"
                 onClick={() => {
                   toggleSetNavBarDisplay();
-                  navigate("/wishlist");
+                  navigate('/wishlist');
                 }}
               >
                 <img src={wishlist} className="navbar-logo" />
                 Wishlist
+              </div>
+              <div
+                className="navbar-text"
+                onClick={() => {
+                  toggleSetNavBarDisplay();
+                  navigate('/address');
+                }}
+              >
+                <img src={address} className="navbar-logo" />
+                Address
               </div>
             </div>
             )
