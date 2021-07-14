@@ -44,8 +44,8 @@ Here's the link for the live demo:
 
 - Github: [@themohammadsa](https://github.com/themohammadsa)
 - Twitter: [@themohammadsa](https://twitter.com/themohammadsa)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/themohammadsa/)
 - Instagram: [@themohammadsa](https://www.instagram.com/themohammadsa/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/themohammadsa/)
 
 ## Contributing
 
