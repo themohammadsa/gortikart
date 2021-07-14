@@ -43,12 +43,23 @@ This is the second project out of five projects created by learning from [@neogc
 - MongoDB + Mongoose
 - jwt Authentication 
 
-## Contact
 
-- Github: [@themohammadsa](https://github.com/themohammadsa)
-- Twitter: [@themohammadsa](https://twitter.com/themohammadsa)
-- Instagram: [@themohammadsa](https://www.instagram.com/themohammadsa/)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/themohammadsa/)
+## Getting Started
+### Dependencies
+You will need `node` and `npm` installed globally in your machine.
+
+### Installation
+1. Clone the repo
+```git clone https://github.com/themohammadsa/gortikart.git```
+2. Install the `npm` packages
+```npm install```
+
+### Usage
+1. To start the server
+```npm start```
+2. To visit the website, go to
+```localhost:3000```
+
 
 ## Contributing
 
@@ -56,3 +67,11 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issue](https://github.com/themohammadsa/gortikart/issues/2) page.
 
+
+
+## Contact
+
+- Github: [@themohammadsa](https://github.com/themohammadsa)
+- Twitter: [@themohammadsa](https://twitter.com/themohammadsa)
+- Instagram: [@themohammadsa](https://www.instagram.com/themohammadsa/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/themohammadsa/)
