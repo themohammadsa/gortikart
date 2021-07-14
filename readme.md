@@ -46,7 +46,7 @@ Here's the link for the live demo:
 - Twitter: [@themohammadsa](https://twitter.com/themohammadsa)
 - Instagram: [@themohammadsa](https://www.instagram.com/themohammadsa/)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/themohammadsa/)
-- 
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!   
