@@ -5,12 +5,15 @@
 This is a full-stack ecommerce application having all the core functionalities of an ecommerce application. The CSS used has been made by using my own [component library](https://gorti.netlify.app/).
 This is the second project out of five projects created by learning from [@neogcamp](https://neog.camp/) for [@roc8](https://www.roc8.careers/).
 
-Here's the link for the live demo:
-- [Live Demo](https://gortikart.netlify.app/)
-
 ## Preview 
 
 ![demo](/demo.gif)
+
+## Links
+
+- [Live Demo](https://gortikart.netlify.app/)
+- [Front-End Repo](https://github.com/themohammadsa/gortikart)
+- [Back-End Repo](https://github.com/themohammadsa/gortiKart-backend)
 
 ## Features
 
