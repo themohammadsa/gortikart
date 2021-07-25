@@ -10,6 +10,7 @@ export const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [throttle, setThrottle] = useState(false);
   const [loader, setLoader] = useState(false);
   const { setToastText, setToastShow } = useProductContext();
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ export const SignUp = () => {
 
   const clickHandler = async () => {
     setError('');
+    setThrottle(true);
     signUpValidation();
 
     const checkInput =
@@ -29,19 +31,21 @@ export const SignUp = () => {
 
     if (checkInput) {
       const data = await createUser({ name, email, password });
-      console.log(data);
       if (data.success) {
         setLoader(true);
         navigate('/login');
         setToastShow(true);
         setToastText('Sign Up Successful!');
+        setThrottle(false);
         navigate('/login');
       } else if (data.message === '409') {
         setError('Email already exists');
+        setThrottle(false);
       } else {
         setError('Server Error!');
+        setThrottle(false);
       }
-    }
+    } else setThrottle(false);
   };
 
   return (
@@ -90,8 +94,12 @@ export const SignUp = () => {
 
               {error && <p className="error-text"> {error} </p>}
 
-              <button className="primary-button" onClick={clickHandler}>
-                Create Account
+              <button
+                className="primary-button"
+                disabled={!throttle ? false : true}
+                onClick={clickHandler}
+              >
+                {!throttle ? 'Create Account' : 'Loading...'}
               </button>
 
               <div className="align-left">
