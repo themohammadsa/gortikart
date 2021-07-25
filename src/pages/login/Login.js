@@ -12,6 +12,7 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [loader, setLoader] = useState(false);
+  const [throttle, setThrottle] = useState(false);
   const { setToastText, setToastShow } = useProductContext();
   const { setName, setToken, setEmail: setEmailContext } = useAuthContext();
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export const Login = () => {
 
   const clickHandler = async () => {
     setError('');
+    setThrottle(true);
     loginValidation();
     const checkInput = email.length > 4 && password.length >= 2;
 
@@ -53,14 +55,18 @@ export const Login = () => {
               userId: data.userId,
             })}`
           );
+          setThrottle(false);
           return navigate(state?.from ? state.from : '/');
         }, 1000);
       } else if (data.message === '409') {
         setError('Password incorrect');
+        setThrottle(false);
       } else if (data.message === '403') {
         setError('Email not found');
+        setThrottle(false);
       } else {
         setError('Servor Error');
+        setThrottle(false);
       }
     }
   };
@@ -117,8 +123,12 @@ export const Login = () => {
 
               {error && <p className="error-text"> {error} </p>}
 
-              <button className="primary-button" onClick={clickHandler}>
-                Log In
+              <button
+                className="primary-button"
+                disabled={!throttle ? false : true}
+                onClick={clickHandler}
+              >
+                {!throttle ? 'Log In' : 'Loading...'}
               </button>
 
               <div className="divider">
