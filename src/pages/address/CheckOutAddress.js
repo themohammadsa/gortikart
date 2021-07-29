@@ -19,7 +19,12 @@ export const CheckOutAddress = () => {
     <div className="address-page">
       <h1>Select your address</h1>
 
-      <button className="add-address-button">Add new address</button>
+      <button
+        className="add-address-button"
+        onClick={() => navigate('/address')}
+      >
+        Add new address
+      </button>
 
       <div>
         {state.address &&
