@@ -3,7 +3,7 @@ import { errorHandler } from './errorHandler';
 
 const API_URL = 'https://gortikart.themohammadsa.repl.co/user/address';
 
-export const addAddress = async ({ address }) => {
+export const addAddress = async (address) => {
   try {
     const response = await axios.post(`${API_URL}/add`, {
       address,
@@ -23,10 +23,10 @@ export const getAddress = async () => {
   }
 };
 
-export const removeAddress = async ({ id }) => {
+export const removeAddress = async (address) => {
   try {
     const response = await axios.post(`${API_URL}/remove`, {
-      id,
+      address,
     });
     return response.data;
   } catch (error) {

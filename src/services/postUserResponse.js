@@ -8,7 +8,6 @@ export const postUserResponse = async (productId, category, command) => {
     const response = await axios.post(`${API_URL}/${category}/${command}`, {
       productId,
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return errorHandler(error);

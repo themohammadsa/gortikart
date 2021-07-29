@@ -1,3 +1,5 @@
+import { address } from 'faker';
+import { addAddress, removeAddress } from '../services/address';
 import { postUserResponse } from '../services/postUserResponse';
 
 export const ReducerFunction = (state, { type, payload, action, key }) => {
@@ -57,6 +59,28 @@ export const ReducerFunction = (state, { type, payload, action, key }) => {
       return {
         ...state,
         wishList: state.wishList.filter((item) => item.id !== payload.id),
+      };
+    case 'SET_ADDRESS':
+      if (payload.address[0] !== null) {
+        return {
+          ...state,
+          address: payload.address,
+        };
+      } else return state;
+    case 'ADD_ADDRESS':
+      addAddress(payload);
+      console.log(payload);
+      return {
+        ...state,
+        address: [...state.address, payload],
+      };
+    case 'REMOVE_ADDRESS':
+      removeAddress(payload.address);
+      return {
+        ...state,
+        address: state.address.filter(
+          (address) => address._id !== payload.address._id
+        ),
       };
     case 'SORT_BY':
       return {

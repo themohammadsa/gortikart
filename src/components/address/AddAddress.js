@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import './addAddress.css';
-import { addAddress } from '../../services/address';
+import { useHomeContext } from '../../context/HomeContext';
 
 export const AddAddress = () => {
   const [address, setAddress] = useState({});
+  const [error, setError] = useState('');
+  const { dispatch } = useHomeContext();
 
   const inputHandler = (e) => {
     address[e.target.id] = e.target.value;
     setAddress(address);
-    console.log(address);
   };
 
-  const clickHandler = async () => {
-    const data = await addAddress({ address });
-    console.log(data);
+  const clickHandler = () => {
+    if (Object.keys(address).length === 6) {
+      setError('');
+      dispatch({ type: 'ADD_ADDRESS', payload: address });
+    } else setError('Please fill all the fields.');
   };
 
   return (
@@ -47,15 +50,7 @@ export const AddAddress = () => {
             onChange={inputHandler}
           />
 
-          <label for="flat">Flat/House no</label>
-          <input
-            className="input-address-field"
-            type="text"
-            id="flat"
-            onChange={inputHandler}
-          />
-
-          <label for="area">Area/Colony </label>
+          <label for="area">House Number/Area </label>
           <input
             className="input-address-field"
             type="text"
@@ -79,14 +74,7 @@ export const AddAddress = () => {
             onChange={inputHandler}
           />
 
-          <label for="country">Country </label>
-          <input
-            className="input-address-field"
-            type="text"
-            id="country"
-            onChange={inputHandler}
-          />
-
+          <p style={{ color: 'red' }}>{error}</p>
           <button className="primary-button" onClick={clickHandler}>
             Add Address
           </button>

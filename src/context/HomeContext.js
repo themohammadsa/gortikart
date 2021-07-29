@@ -6,6 +6,7 @@ import {
   useEffect,
 } from 'react';
 import { ReducerFunction } from '../reducer/ReducerFunction';
+import { getAddress } from '../services/address';
 import { getProducts } from '../services/getProducts';
 import { getUserData } from '../services/getUserData';
 import { useAuthContext } from './AuthProvider';
@@ -21,8 +22,10 @@ export const HomeProvider = ({ children }) => {
     if (token) {
       const products = await getProducts();
       const { cart, wishlist } = await getUserData();
+      const { address } = await getAddress();
       updateData(cart, products, 'cart');
       updateData(wishlist, products, 'wishList');
+      dispatch({ type: 'SET_ADDRESS', payload: { address } });
       setLoader(true);
       setDatabase(products);
     }
@@ -42,6 +45,7 @@ export const HomeProvider = ({ children }) => {
     wishList: [],
     cart: [],
     sortBy: '',
+    address: [],
     FAST_DELIVERY: false,
     INCLUDE_OUT_OF_STOCK: false,
     search: '',

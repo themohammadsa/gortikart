@@ -1,12 +1,13 @@
-import { removeAddress } from '../../services/address';
 import './addressCard.css';
+import { useHomeContext } from '../../context/HomeContext';
 
 export const AddressCard = ({ address }) => {
-  const removeHandler = async () => {
-    const id = address._id;
-    const response = await removeAddress({ id });
-    console.log(response);
+  const { dispatch } = useHomeContext();
+
+  const removeHandler = () => {
+    dispatch({ type: 'REMOVE_ADDRESS', payload: { address } });
   };
+
   return (
     <div className="address-card">
       <button className="button-remove" onClick={removeHandler}>

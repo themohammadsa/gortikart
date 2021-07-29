@@ -1,17 +1,10 @@
-import { useEffect, useState } from 'react';
 import './address.css';
 import { AddAddress } from '../../components/address/AddAddress';
-import { getAddress } from '../../services/address';
 import { AddressCard } from '../../components/address/AddressCard';
-import { address } from 'faker';
+import { useHomeContext } from '../../context/HomeContext';
 
 export const Address = () => {
-  const [addresses, setAddresses] = useState([]);
-
-  useEffect(async () => {
-    const response = await getAddress();
-    setAddresses(response.address);
-  }, []);
+  const { state } = useHomeContext();
 
   return (
     <div className="address-page">
@@ -20,8 +13,8 @@ export const Address = () => {
       </div>
       <h2>Your addresses</h2>
       <div>
-        {addresses &&
-          addresses.map((address) => {
+        {state.address &&
+          state.address.map((address) => {
             return (
               <>
                 <AddressCard address={address} />
